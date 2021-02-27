@@ -1,0 +1,718 @@
+
+@import "partials/placeholders";
+@import "partials/mixin";
+@import "partials/var";
+
+html
+{
+    font-size: 20px;
+}
+
+body
+{
+    font-family: 'Roboto', sans-serif;
+    h1 , h2 
+    {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $header-color;
+    }
+
+    h2::after
+    {
+        @extend %underline-header;
+        @include header-underline($header-underline-color);
+    }
+
+    h3 ,h4 , h5 
+    {
+        font-family: 'Kaushan Script', cursive;
+        color: $header-color;
+    }
+
+    .norm-para
+    {
+        font-size: 0.9rem;
+        color: $para-color;
+        padding: 0 0 2rem;
+    }
+}
+
+
+// HEADER STYLE
+
+.header
+{
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(225, 203, 123, 0.9) , rgba(218, 115, 115, 0.9) ) , url(../../Images/n.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+
+ 
+    .header__body
+    {
+
+        h3
+        {
+            color: $white-color;
+        }
+        .header__page-header
+        {
+            font-size: 5rem;
+            font-weight: 900;
+            color: $white-color;
+            &::after
+            {
+                @extend %underline-header;
+                @include header-underline($white-color);
+            }
+        }
+        a
+        {
+            @extend %link;
+            @include linkBg(transparent);
+            @include linkborder( solid , white , 2px);
+        }
+    }
+    
+
+
+}
+
+// NAVBAR STYLE
+.navbar
+{
+    background: rgba(218, 115, 115, 0.7);
+    .navbar-brand
+    {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+    }
+
+    .navbar-nav
+    {
+        
+        .nav-link
+        {
+            &:hover
+            {
+                color: $primary-color;
+            }
+        }
+
+        .active>.nav-link
+        {
+            color:$primary-color ;
+            &::after
+            {
+               content: "";
+               background-color: $primary-color;
+               border: solid $primary-color 2px;
+               display: block;
+            }
+        }
+    }
+
+    
+}
+
+// ABOUTUS SECTION STYLE
+.aboutus
+{
+    .aboutus__img 
+    {
+        .aboutus__img-container
+        {
+            background-color: $secondary-color;
+            width: 100%;
+            .bg-img
+            {
+                position: relative;
+                color: $white-color;
+                background-color: $white-color;
+                &:hover
+                {
+                    bottom: 10px;
+                    right: 10px;
+                }
+                &:hover .overlay
+                {
+                    visibility: visible !important;
+                }
+                .overlay
+                {
+                    @extend %overlay;
+                }
+            }
+        }
+    }
+}
+
+// COUNTER SECTION STYLE
+.counter
+{
+    color: $white-color;
+    background-color: $secondary-color;
+
+    .counter__number
+    {
+        font-size: 4rem;
+        font-weight: bolder;
+        line-height: 1;
+    }
+
+    .counter__text
+    {
+        font-weight: normal;
+        font-size: 0.7rem;
+        margin-bottom: 0;
+    }
+
+}
+
+// WORK SECTION STYLE
+.work
+{
+    .work__item
+    {
+
+        i
+        {
+            font-size: 2rem;
+            color: $secondary-color;
+        }
+    }
+}
+
+// DESIGN STYLE
+.design
+{
+    position: relative;
+    background: linear-gradient(0deg, rgba(216,216,216,0.9) , rgba(216,216,216,0.9) ) , url(../../Images/device.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .design__floating-mobile
+    {
+        position: absolute;
+        bottom: -14%;
+        z-index: 2;
+    }
+}
+
+// SERVICE STYLE
+.service
+{
+
+    .card
+    {
+        border-radius: unset;
+        
+        .card-header
+        {
+            background: $white-color;
+            border-radius: unset;
+            .btn
+            {
+                .card-header__btn__body
+                {
+                    i
+                    {
+                        color: $secondary-color;
+                    }
+                    p
+                    {
+                        font-family: 'Roboto', sans-serif;
+                    }
+                }
+                &:focus
+                {
+                    box-shadow: none;
+                }
+            }
+        }
+        
+    }
+    .card-body{
+        overflow-y: scroll;
+        max-height: 150px ;
+        color: #999999;
+        font-style: italic;
+        text-align: left;
+        font-size: 0.9rem;
+    }
+    .card-body::-webkit-scrollbar{
+        background: rgba(#999999,  0.2);
+        width: 0.3rem;
+        border-radius: 10px;
+    }
+    .card-body::-webkit-scrollbar-thumb{
+        background-color: $secondary-color;
+        border-radius: 10px;
+    }
+    i
+    {
+        font-size: 2rem;
+    }
+}
+
+// COMMENT STYLE
+.comment
+{
+    background-color: #F8F8F8;
+
+    .comment__para
+    {
+        color: $para-color;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 1.1rem;
+    }
+    .comment__username
+    {
+        font-family: 'Kaushan Script', cursive;
+    }
+    .comment__username::before
+    {
+        content: "";
+        background-color: $header-underline-color;
+        border-radius: solid $header-underline-color 3px;
+        height: 3px;
+        width: 10%;
+        margin-right: 0.4rem;        
+    }
+    &__arrow
+    {
+        color: $para-color;
+        font-size: 1.2rem;
+    }
+    &__body
+    {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .carousel-control-prev , .carousel-control-next
+    {
+        width: 15px ;
+    }
+}
+
+// TEAM STYLE
+.team
+{
+    .team__img 
+    {
+        .team__img-container
+        {
+            background-color: $secondary-color;
+            width: 100%;
+            .bg-img
+            {
+                position: relative;
+                color: $white-color;
+                background-color: $white-color;
+                .overlay
+                {
+                    @extend %overlay;
+                }
+                &:hover
+                {
+                    bottom: 10px;
+                    right: 10px;
+                }
+                &:hover .overlay
+                {
+                    visibility: visible !important;
+                }
+            }
+        }
+        &__username
+        {
+            font-family: 'Roboto', sans-serif;
+        }
+        &__usertitle
+        {
+            font-style: italic;
+            color: $para-color;
+        }
+    }
+}
+
+// BRAND STYLE
+.brand
+{
+    background-color: #F8F8F8;
+}
+
+
+// USER COMMENT STYLE
+.userComment
+{
+    &__para
+    {
+        color: $para-color;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 1.1rem;
+    }
+    &__username
+    {
+        font-family: 'Kaushan Script', cursive;
+    }
+    &__username::before
+    {
+        content: "";
+        background-color: $header-underline-color;
+        border-radius: solid $header-underline-color 3px;
+        height: 3px;
+        width: 10%;
+        margin-right: 0.4rem;        
+    }
+    &__arrow
+    {
+        color: $para-color;
+        font-size: 1.2rem;
+    }
+    &__body
+    {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .carousel-control-prev , .carousel-control-next
+    {
+        width: 15px ;
+    }
+}
+
+// TESTOMONIALS STYLE
+.testimonials
+{
+    background: linear-gradient(0deg, rgba(#d8d8d8,0.8) , rgba(#d8d8d8,0.8) ) , url(../../Images/clientbg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .testimonials__comment__right 
+    {
+        .title
+        {
+            color: #333333;
+            &::after
+            {
+                @extend %underline-header;
+                @include header-underline($header-underline-color);
+                margin: 1rem 0;
+                width: 25%;
+            }
+        }
+    }
+}
+// LATEST STYLE
+.latest
+{
+    .latest__ticket
+    {
+        background-color: $secondary-color;
+        color: $white-color;
+        padding: 0.8rem 0.5rem;
+        bottom: 13px;
+        left: -10px;
+        h6
+        {
+            line-height: 0.5;
+        }
+        .latest__ticket__para
+        {
+            font-size: 0.7rem;
+            margin: 0;
+            line-height: 0.5;
+        }
+    }
+    .norm-para
+    {
+        border-bottom: solid #D2D2D0 2px ;
+    }
+
+    .latest__icon__wrapper
+    {
+        i
+        {
+            color: $secondary-color;
+        }
+
+        span
+        {
+            color: $para-color;
+        }
+    }
+}
+// MAP STYLE
+.map
+{
+    background: linear-gradient(0deg, rgba(#d8d8d8,0.8) , rgba(#d8d8d8,0.8) ) , url(../../Images/mapbg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $header-underline-color;
+
+    h2
+    {
+        color: $header-underline-color;
+        &::after
+        {
+            margin: 1rem auto;
+        }
+    }
+}
+
+// FOOTER STYLE
+.footer
+{
+    background-color: #F8F8F8;
+    &__body
+    {
+        border-bottom: solid #D2D2D0 2px;
+        &__left
+        {
+            i
+            {
+                color: $secondary-color;
+            }
+            &__follower
+            {
+                border-bottom: solid #D2D2D0  2px;
+            }
+            &__logo
+            {
+                font-size: 2.5rem;
+                font-weight: 900;
+                color: $para-color;
+                &::after
+                {
+                    content: none;
+                }
+            }
+        
+            &__para
+            {
+                font-size: 0.9rem;
+                color: $para-color;
+            }
+            &__form
+            {
+                input
+                {
+                    border-radius: 0;
+                }
+                input::placeholder
+                {
+                    color: $para-color;
+                }
+                .sub-btn
+                {
+                    background: $secondary-color;
+                    color: $white-color;
+                    border-radius: 0;
+                }
+            }
+        }
+    
+        &__middle
+        {
+            &__para
+            {
+                font-size: 0.8rem;
+            }
+            &__header
+            {
+                &::after
+                {
+                    content: none;
+                }
+            }
+        }
+    
+        &__right
+        {
+            &__header
+            {
+                &::after
+                {
+                    content: none;
+                }
+            }
+        }
+    }
+    
+    &__copyright
+    {
+        &__colored
+        {
+            color: $header-underline-color;
+        }
+    }
+}
+
+//-----------------------------------------------RESPONSIVE-----------------------------------------------------------------------
+
+
+
+
+// Small devices (landscape phones, 576px and down)
+@media (max-width: 576px) {
+
+    html
+    {
+        font-size: 10px;
+    }
+    body
+    {
+        h2
+        {
+            font-size: 2rem;
+        }
+        h4
+        {
+        font-size: 2.5rem;
+        }
+        .norm-para
+        {
+        font-size: 1.3rem;
+        }
+    }
+    
+    .container
+    {
+        width: 100%;
+        padding: 0;
+        max-width: none;
+    }
+
+// ABOUTUS SECTION STYLE
+.aboutus
+{
+    .aboutus__img-container
+    {
+        width: 75% !important;
+    }
+    p
+    {
+        font-size: 1.3rem;
+    }
+}
+
+// COUNTER SECTION STYLE
+.counter
+{
+    .counter__number
+    {
+        font-size: 5rem;
+    }
+
+    .counter__text
+    {
+        font-size: 2rem;
+    }
+}
+
+
+// WORK SECTION STYLE
+.work
+{
+    .work__item
+    {
+        .media
+        {
+            i
+            {
+                font-size: 3rem ;
+            }
+    
+            h6
+            {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+// DESIGN SECTION STYLE
+.design
+{
+    .design__floating-mobile
+    {
+        width: 30%;
+        bottom: -10%;
+        right: 8%;
+    }
+}
+// SERVICE SECTION STYLE
+.service
+{
+    .card-body
+    {
+        font-size: 1.3rem;
+
+    }
+}
+
+// TEAM SECTION STYLE
+.team
+{
+    .team__img-container
+    {
+        width: 75% !important;
+    }
+    &__img__username
+    {
+        font-size: 2rem;
+    }
+    &__img__usertitle
+    {
+        font-size: 1.5rem ;
+    }
+}
+
+.footer
+{
+    &__body__middle__para
+    {
+        font-size: 1.1rem;
+    }
+}
+
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+
+// DESIGN SECTION STYLE
+    .design
+    {
+        .design__floating-mobile
+        {
+            width: 25%;
+            right: 15%;
+
+        }
+    }
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+
+// DESIGN STYLE
+.design
+{
+    .design__floating-mobile
+    {
+        right: 21%;
+    }
+}
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }

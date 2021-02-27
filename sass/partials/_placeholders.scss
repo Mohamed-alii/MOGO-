@@ -1,0 +1,32 @@
+@import "var";
+
+%navlink-hover
+{
+    color: $primary-color;
+}
+
+%link
+{
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+%underline-header
+{
+    content: "";
+    display: block;
+    margin: 2rem auto 3rem;
+    width: 5%;
+}
+%overlay
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(225, 203, 123, 0.9) , rgba(218, 115, 115, 0.9) );
+}

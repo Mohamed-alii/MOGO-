@@ -1,0 +1,15 @@
+@import "var";
+
+
+@mixin linkBg($background) {
+    background-color: $background;
+}
+
+@mixin linkborder($style , $color , $width) {
+    border: $style  $color  $width;
+}
+
+@mixin header-underline($border-color) {
+    background-color: $border-color;
+    border: solid $border-color 1.5px;
+}
